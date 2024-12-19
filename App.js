@@ -1,14 +1,24 @@
 import React from 'react';
 
 import {NavigationContainer} from '@react-navigation/native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
 import Home from './src/pages/Home';
 import Sobre from './src/pages/Sobre';
 import Contato from './src/pages/Contato';
 
-const Stack = createNativeStackNavigator();
+const Tab = createBottomTabNavigator();
 
 export default function App() {
-  return <NavigationContainer></NavigationContainer>;
+  return (
+    <NavigationContainer>
+      <Tab.Navigator>
+        <Tab.Screen name="Home" component={Home} />
+
+        <Tab.Screen name="Sobre" component={Sobre} />
+
+        <Tab.Screen name="Contato" component={Contato} />
+      </Tab.Navigator>
+    </NavigationContainer>
+  );
 }
